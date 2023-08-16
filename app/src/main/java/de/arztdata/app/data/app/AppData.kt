@@ -18,6 +18,8 @@ class AppData(private val context: Context){
 
         const val DATA_VERSION = "data_version"
         const val NOTE = "profile_note"
+
+        const val LOGGED_IN = "logged_in"
     }
 
 

@@ -1,4 +1,4 @@
-package de.arztdata.app
+package de.arztdata.app.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import de.arztdata.app.data.CategoryItem
-import de.arztdata.app.data.Data
+import de.arztdata.app.MainActivity
+import de.arztdata.app.R
 import de.arztdata.app.data.EntryItem
-import de.arztdata.app.ui.CategoryAdapter
-import de.arztdata.app.ui.EntryAdapter
+import de.arztdata.app.ui.adapter.EntryAdapter
 
 
 class InfoFragment(var entry: List<EntryItem>?) : Fragment() {

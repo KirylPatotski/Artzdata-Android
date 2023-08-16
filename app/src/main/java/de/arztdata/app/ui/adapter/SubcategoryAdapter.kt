@@ -1,4 +1,4 @@
-package de.arztdata.app.ui
+package de.arztdata.app.ui.adapter
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import de.arztdata.app.InfoFragment
+import de.arztdata.app.ui.fragment.InfoFragment
 import de.arztdata.app.MainActivity
 import de.arztdata.app.R
 import de.arztdata.app.data.SubcategoryItem
-import de.arztdata.app.ui.SubcategoryAdapter.SubcategoryViewHolder
+import de.arztdata.app.ui.adapter.SubcategoryAdapter.SubcategoryViewHolder
 
 class SubcategoryAdapter(private val subcategories: List<SubcategoryItem>, private val activity: Activity) : RecyclerView.Adapter<SubcategoryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubcategoryViewHolder {

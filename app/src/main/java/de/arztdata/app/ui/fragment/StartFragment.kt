@@ -1,4 +1,4 @@
-package de.arztdata.app
+package de.arztdata.app.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,11 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import de.arztdata.app.MainActivity
+import de.arztdata.app.R
 import de.arztdata.app.data.CategoryItem
 import de.arztdata.app.data.Data
+import de.arztdata.app.data.app.AppData
 import de.arztdata.app.data.constants.JSON_FILE_NAME
 import de.arztdata.app.data.internet.DownloadData
-import de.arztdata.app.ui.CategoryAdapter
+import de.arztdata.app.ui.adapter.CategoryAdapter
+import de.arztdata.app.ui.authentification.LoginFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +33,6 @@ class StartFragment : Fragment() {
 
     private lateinit var categoryRecyclerView: RecyclerView
     private lateinit var data: Data
-    private lateinit var categories: List<CategoryItem>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,7 +40,7 @@ class StartFragment : Fragment() {
         try {
             loadCategoriesFromJson()
 
-            categoryRecyclerView = view.findViewById<RecyclerView>(R.id.categoryRecyclerView)
+            categoryRecyclerView = view.findViewById(R.id.categoryRecyclerView)
             categoryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
             val adapter = CategoryAdapter(data.category,activity as MainActivity)
@@ -48,13 +51,13 @@ class StartFragment : Fragment() {
                 if (downloadedContent.isNotEmpty()) {
                     loadCategoriesFromJson()
 
-                    categoryRecyclerView = view.findViewById<RecyclerView>(R.id.categoryRecyclerView)
+                    categoryRecyclerView = view.findViewById(R.id.categoryRecyclerView)
                     categoryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
                     val adapter = CategoryAdapter(data.category,activity as MainActivity)
                     categoryRecyclerView.adapter = adapter
                 } else {
-                    Toast.makeText(requireContext(),R.string.you_need_to_be_online,Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), R.string.you_need_to_be_online,Toast.LENGTH_LONG).show()
                 }
             }
         }

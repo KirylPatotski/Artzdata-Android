@@ -1,19 +1,13 @@
-package de.arztdata.app
+package de.arztdata.app.ui.fragment
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import de.arztdata.app.R
 import de.arztdata.app.data.app.AppData
-import java.io.File
-import java.io.FileOutputStream
 
 
 class NotesFragment : Fragment() {

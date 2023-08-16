@@ -1,6 +1,30 @@
 <resources>
     <string name="app_name">ArztData</string>
-    <string name="updating_data">Aktualisiere...</string>
+    <string name="updating_data">Aktualisiere…</string>
     <string name="you_need_to_be_online">Bitte online sein.</string>
     <string name="notes">Notizen</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="login">Login</string>
+    <string name="help">Hilfe</string>
+    <string name="get_code">Code erhalten</string>
+    <string name="website">Website</string>
+    <string name="imprint">Impressum, Datenschutz, Nutzungsbedingungen</string>
+    <string name="invalid_text">Ungültiger Code</string>
+    <string name="enter_your_code">Ihr Code, z.B. \"<b>abcd-1234-efgh</b>\"</string>
+
+
+    <string-array name="help_options">
+        <item>Hilfe/Code Anfordern</item>
+        <item>Website</item>
+        <item>E-Mail Support</item>
+        <item>Telefoniser Support</item>
+    </string-array>
+
+    <string-array name="options">
+        <item>Mehr</item>
+        <item>Notizen</item>
+        <item>Informationen</item>
+        <item>Feedback</item>
+    </string-array>
+
 </resources>

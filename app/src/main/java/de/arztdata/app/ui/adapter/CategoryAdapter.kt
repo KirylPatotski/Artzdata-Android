@@ -1,4 +1,4 @@
-package de.arztdata.app.ui
+package de.arztdata.app.ui.adapter
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.arztdata.app.R
 import de.arztdata.app.data.CategoryItem
-import de.arztdata.app.ui.CategoryAdapter.CategoryViewHolder
+import de.arztdata.app.ui.adapter.CategoryAdapter.CategoryViewHolder
 
 class CategoryAdapter(private val categories: List<CategoryItem>, private val activity: Activity) : RecyclerView.Adapter<CategoryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
