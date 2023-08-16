@@ -25,10 +25,7 @@ class NotesFragment : Fragment() {
 
         restoreTexts()
 
-
-
         view.setOnClickListener { saveProfileData() }
-
     }
 
     override fun onStop() {
@@ -50,7 +47,6 @@ class NotesFragment : Fragment() {
 
         if (appData.getAnyString(AppData.NOTE) != "")
             notes.setText(appData.getAnyString(AppData.NOTE))
-
     }
 
 

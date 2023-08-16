@@ -9,7 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.contentValuesOf
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -18,6 +21,7 @@ import com.google.android.material.textfield.TextInputLayout
 import de.arztdata.app.MainActivity
 import de.arztdata.app.R
 import de.arztdata.app.data.app.AppData
+import de.arztdata.app.data.constants.LOGIN_MAX_TRIES
 import de.arztdata.app.ui.fragment.StartFragment
 
 
@@ -39,6 +43,10 @@ class LoginFragment : Fragment() {
 
         handleEdittext(view)
         handleSpinner(view)
+
+        view.findViewById<TextView>(R.id.login_text).setOnClickListener {
+            (activity as MainActivity).openFragment(LoginInfoFragment())
+        }
     }
 
     private fun handleEdittext(view: View){
@@ -61,12 +69,20 @@ class LoginFragment : Fragment() {
     }
 
     private fun verifyText(inputText: String) {
+        var appData = AppData(requireContext())
 
-        val correct =  CodeGenerator().verifyCodeIntegrity(inputText)
-        AppData(requireContext()).setAnyBoolean(AppData.LOGGED_IN,correct)
-        textInputLayout.error = if (correct) null else getString(R.string.invalid_text)
+        if (appData.getInt(AppData.LOG_IN_TRIES) > LOGIN_MAX_TRIES){
+            Toast.makeText(requireContext(),R.string.too_many_tries, Toast.LENGTH_SHORT).show()
+        } else{
+            val correct =  CodeGenerator().verifyCodeIntegrity(inputText)
+            appData.setAnyBoolean(AppData.LOGGED_IN,correct)
+            appData.add(AppData.LOG_IN_TRIES)
+            textInputLayout.error = if (correct) null else getString(R.string.invalid_text)
 
-        if (correct) (activity as MainActivity).openFragment(StartFragment(),true)
+            if (correct) (activity as MainActivity).openFragment(StartFragment(),true)
+        }
+
+
     }
 
     private fun handleSpinner(view: View){
@@ -79,29 +95,16 @@ class LoginFragment : Fragment() {
                 try {
                     when(position){
                         0 -> println("Default spinner position")
-                        1 -> openWebsite()
-                        2 -> openEmailSupport()
-                        3 -> openPhone()
+                        1 -> (activity as MainActivity).openLink("https://www.arztdata.de/kontakt.htm")//TODO
+                        2 -> (activity as MainActivity).openEmail("info@arztdata.de")
+                        3 -> (activity as MainActivity).dial("+49 40 8222052-0")
                     }
                 }catch (e:Exception){
-
+                    e.printStackTrace()
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) { }
         }
     }
-
-    private fun openPhone() {
-//        TODO
-    }
-
-    private fun openEmailSupport() {
-//        TODO
-    }
-
-    private fun openWebsite() {
-//        TODO
-    }
-
 
 }

@@ -20,14 +20,14 @@ class AppData(private val context: Context){
         const val NOTE = "profile_note"
 
         const val LOGGED_IN = "logged_in"
+
+        const val LOG_IN_TRIES = "login_tries"
+
     }
 
 
-    fun add(key:String, toAdd: Int? = 1){
-        var number = toAdd
-        if(toAdd == null) number = 1
-        val tempNumber = pref.getInt(key,0)
-        setInt(key,tempNumber+number!!)
+    fun add(key:String, toAdd: Int = 1){
+        setInt(key,pref.getInt(key,0)+toAdd)
     }
 
     fun setInt(key: String, value: Int){

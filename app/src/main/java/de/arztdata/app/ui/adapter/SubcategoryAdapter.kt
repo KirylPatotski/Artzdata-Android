@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import de.arztdata.app.ui.fragment.InfoFragment
+import de.arztdata.app.ui.fragment.PersonFragment
 import de.arztdata.app.MainActivity
 import de.arztdata.app.R
 import de.arztdata.app.data.SubcategoryItem
@@ -26,7 +26,7 @@ class SubcategoryAdapter(private val subcategories: List<SubcategoryItem>, priva
         holder.itemView.setOnClickListener { v: View? ->
 
 
-            (activity as MainActivity).openFragment(InfoFragment(subcategories[position].entry))
+            (activity as MainActivity).openFragment(PersonFragment(subcategories[position].entry))
 
         }
     }

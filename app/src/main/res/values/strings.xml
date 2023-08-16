@@ -12,12 +12,17 @@
     <string name="invalid_text">Ungültiger Code</string>
     <string name="enter_your_code">Ihr Code, z.B. \"<b>abcd-1234-efgh</b>\"</string>
 
+    <string name="no_code">Sollten Sie über keinen Code verfügen, <u>tippen Sie auf diesen hier</u> um mehr zu lesen.</string>
+    <string name="no_code_description">Ein Code ist Notwendig, um unautorisierte Zugriffe zu vermeiden und damit alle beteiligten Personen zu schützen. Das heißt auch, dass Sie nur das Recht haben, einen Code zu erhalten, wenn Sie ein gewerblicher Kunde sind. \n\nEinen Code können Sie nach der Anmeldung auf der Website erhalten, gehen Sie dazu auf den Vorherigen Bildschirm, öffnen Sie eines das Menü unter dem Textfeld und Fragen Sie über die Website, (nach der Anmeldung) einen Code an. Sie können sich gern telefonisch oder per E-Mail helfen lassen. \n\nWenn Sie alle Schritte durchgeführt haben, kann es einige Tage dauern, bis Ihnen der Code geschickt wird. Er wird Ihnen entweder postalisch oder elektronisch gesendet. \n\nIhre Zufriedenheit ist uns wichtig, darum melden Sie sich bitte, falls etwas nicht Ihren Erwartungen entspricht.</string>
+    <string name="imprint_text"><b>Impressum</b>\n\nDas Angebot von ArztData richtet sich nur an gewerbliche Kunden.\n\n<b>ArztData AG</b>\nSchloßstraße 2\n22041 Hamburg\n\nTel. +49 40 8222052-0\nFax +49 40 8222052-22\nE-Mail: info@arztdata.de\n\n<b>Vorstand</b> Vadim Kogan\n\n<b>Handelsregister</b> Hamburg HRB 121431\n<b>USt-Ident-Nr.</b>: DE214725860\n\n<b>Datenschutzbeauftragter</b>\nRA Thomas Brehm, Rechtsanwalt\nBrandstwiete 46, 20457 Hamburg, Deutschland\n<u>https://www.arztdata.de/datenschutz.htm</u>\n\n<b>Web</b>\n<u>https://www.arztdata.de/</u>\n<u>https://mediziner-adressen.de/</u>\n<u>https://www.arztdata-shop.de/</u>\n\n<b>App Version</b></string>
+    <string name="version_text">1.0.0, Code 1\nVersion der Inhalte: %d\n</string>
+    <string name="too_many_tries">Zu viele Versuche, reinstallieren Sie bitte die App.</string>
 
     <string-array name="help_options">
         <item>Hilfe/Code Anfordern</item>
         <item>Website</item>
         <item>E-Mail Support</item>
-        <item>Telefoniser Support</item>
+        <item>Telefonischer Support</item>
     </string-array>
 
     <string-array name="options">

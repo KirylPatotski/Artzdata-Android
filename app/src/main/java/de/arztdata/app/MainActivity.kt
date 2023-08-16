@@ -1,5 +1,7 @@
 package de.arztdata.app
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -15,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import de.arztdata.app.data.app.AppData
 import de.arztdata.app.data.internet.DownloadVersion
 import de.arztdata.app.ui.authentification.LoginFragment
+import de.arztdata.app.ui.fragment.InfoFragment
 import de.arztdata.app.ui.fragment.NotesFragment
 import de.arztdata.app.ui.fragment.StartFragment
 import java.util.*
@@ -25,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         DownloadVersion.handleNewDataVersion(this)
 
@@ -62,7 +64,10 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 try {
                     when(position){
-
+                        0 -> println("Default position")
+                        1 -> this@MainActivity.findViewById<FloatingActionButton>(R.id.fab).performClick()
+                        2 -> openFragment(InfoFragment())
+                        3 -> openEmail("info@arztdata.de")//TODO
                     }
                 }catch (e:Exception){
 
@@ -82,6 +87,26 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    fun dial(number: String){
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:$number")
+        startActivity(intent)
+    }
+
+    fun openEmail(mail: String, subject: String = "") {
+        val emailIntent = Intent(Intent.ACTION_SEND)
+        emailIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        emailIntent.type = "vnd.android.cursor.item/email"
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(mail))
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "")
+        startActivity(Intent.createChooser(emailIntent, ""))
+    }
+
+    fun openLink(url: String){
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
+    }
 
 
     fun openFragmentWithOutTransitions(fragment: Fragment,doClearBackStack: Boolean = false,tag: String? = null): Boolean {
